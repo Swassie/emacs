@@ -29,17 +29,12 @@
   (define-key c-mode-base-map (kbd "<C-tab>") (function company-complete))
   )
 
-;; (use-package flycheck-rtags
-;;   :ensure t
-;;   :config
-;;   (defun my-flycheck-rtags-setup ()
-;; 	(flycheck-select-checker 'rtags)
-;; 	(setq-local flycheck-highlighting-mode nil)
-;; 	(setq-local flycheck-check-syntax-automatically nil)
-;; 	(rtags-set-periodic-reparse-timeout 2.0)
-;; 	)
-;;   (add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
-;;   )
+(use-package magit
+  :ensure t
+  :config
+  (setq vc-handled-backends (delq 'Git vc-handled-backends))
+  (global-set-key (kbd "C-x g") 'magit-status)
+  )
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/.emacsBackups"))
       backward-delete-char-untabify-method 'hungry
@@ -65,7 +60,6 @@
   (setq c-basic-offset 4)
 
   (company-mode 1)
-;  (flycheck-mode 1)
   )
 
 (defun my-python-config ()

@@ -54,8 +54,8 @@
 
 (defun my-prog-mode-config ()
   (setq indent-tabs-mode t
-	tab-width 4
-	)
+		tab-width 4
+		)
 
   (show-paren-mode 1)
   (electric-pair-mode 1)

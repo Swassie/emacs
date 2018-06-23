@@ -36,6 +36,11 @@
   (global-set-key (kbd "C-x g") 'magit-status)
   )
 
+(require 'org)
+(setq org-log-done t)
+
+(winner-mode 1)
+
 (setq backup-directory-alist '(("." . "~/.emacs.d/.emacsBackups"))
       backward-delete-char-untabify-method 'hungry
       c-default-style "bsd"

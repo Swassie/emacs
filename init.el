@@ -18,6 +18,12 @@
 (setq rtags-autostart-diagnostics t)
 (rtags-diagnostics)
 (setq rtags-completions-enabled t)
+(define-key c-mode-base-map (kbd "C-c s") 'rtags-find-symbol-at-point)
+(define-key c-mode-base-map (kbd "C-c r") 'rtags-references-tree)
+(define-key c-mode-base-map (kbd "C-c i") 'rtags-include-file)
+(define-key c-mode-base-map (kbd "C-c f") 'rtags-fix-fixit-at-point)
+(define-key c-mode-base-map (kbd "<M-left>") 'rtags-location-stack-back)
+(define-key c-mode-base-map (kbd "<M-right>") 'rtags-location-stack-forward)
 (add-hook 'c-mode-common-hook 'rtags-start-process-unless-running)
 (add-hook 'kill-emacs-hook 'rtags-quit-rdm)
 
@@ -26,7 +32,7 @@
   :config
   (load "/opt/rtags/src/company-rtags")
   (setq company-backends (list 'company-rtags))
-  (define-key c-mode-base-map (kbd "<C-tab>") (function company-complete))
+  (define-key c-mode-base-map (kbd "<C-tab>") 'company-complete)
   )
 
 (use-package magit

@@ -49,6 +49,8 @@
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/.emacsBackups"))
       backward-delete-char-untabify-method 'hungry
+	  read-file-name-completion-ignore-case t
+	  read-buffer-completion-ignore-case t
       c-default-style "bsd"
       )
 

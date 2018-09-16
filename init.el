@@ -56,6 +56,7 @@
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 (global-set-key "\M-n"  (lambda () (interactive) (scroll-up   2)))
 (global-set-key "\M-p"  (lambda () (interactive) (scroll-down 2)))

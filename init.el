@@ -5,34 +5,44 @@
 ;; You may delete these explanatory comments.
 (require 'package)
 
-(add-to-list 'package-archives
-             '("MELPA Stable" . "https://stable.melpa.org/packages/"))
+(setq package-archives
+	  '(("GNU ELPA"     . "https://elpa.gnu.org/packages/")
+		("MELPA Stable" . "https://stable.melpa.org/packages/")
+		("MELPA"        . "https://melpa.org/packages/"))
+	  package-archive-priorities
+	  '(("MELPA Stable" . 10)
+		("GNU ELPA"     . 5)
+		("MELPA"        . 0))
+	  )
 
 (package-initialize)
 
 (eval-when-compile
   (require 'use-package))
 
-(load "/opt/rtags/src/rtags")
-(setq rtags-path "/opt/rtags/build/bin")
-(setq rtags-autostart-diagnostics t)
-(rtags-diagnostics)
-(setq rtags-completions-enabled t)
-(define-key c-mode-base-map (kbd "C-c s") 'rtags-find-symbol-at-point)
-(define-key c-mode-base-map (kbd "C-c r") 'rtags-references-tree)
-(define-key c-mode-base-map (kbd "C-c i") 'rtags-include-file)
-(define-key c-mode-base-map (kbd "C-c f") 'rtags-fix-fixit-at-point)
-(define-key c-mode-base-map (kbd "<M-left>") 'rtags-location-stack-back)
-(define-key c-mode-base-map (kbd "<M-right>") 'rtags-location-stack-forward)
-(add-hook 'c-mode-common-hook 'rtags-start-process-unless-running)
-(add-hook 'kill-emacs-hook 'rtags-quit-rdm)
+(use-package lsp-mode
+  :ensure t
+  )
 
-(use-package company
+(defun cquery//enable ()
+  (condition-case nil
+      (lsp-cquery-enable)
+    (user-error nil)))
+
+(use-package cquery
+  :ensure t
+  :commands lsp-cquery-enable
+  :init
+  (add-hook 'c-mode-common-hook #'cquery//enable)
+  :config
+  (setq cquery-executable "/opt/cquery/build/release/bin/cquery")
+  )
+
+(use-package company-lsp
   :ensure t
   :config
-  (load "/opt/rtags/src/company-rtags")
-  (setq company-backends (list 'company-rtags))
-  (define-key c-mode-base-map (kbd "<C-tab>") 'company-complete)
+  (setq company-backends (list 'company-lsp))
+  (setq company-transformers nil company-lsp-async t company-lsp-cache-candidates nil)
   )
 
 (use-package magit
@@ -48,11 +58,11 @@
 (winner-mode 1)
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/.emacsBackups"))
-      backward-delete-char-untabify-method 'hungry
+	  backward-delete-char-untabify-method 'hungry
 	  read-file-name-completion-ignore-case t
 	  read-buffer-completion-ignore-case t
-      c-default-style "bsd"
-      )
+	  c-default-style "bsd"
+	  )
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (tool-bar-mode -1)
@@ -74,6 +84,7 @@
   (setq c-basic-offset 4)
 
   (company-mode 1)
+  (define-key c-mode-base-map (kbd "<C-tab>") 'company-complete)
   )
 
 (defun my-python-config ()
@@ -90,7 +101,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
- '(package-selected-packages (quote (use-package))))
+ '(package-selected-packages (quote (lsp-mode use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

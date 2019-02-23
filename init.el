@@ -20,29 +20,8 @@
 (eval-when-compile
   (require 'use-package))
 
-(use-package lsp-mode
+(use-package ggtags
   :ensure t
-  )
-
-(defun cquery//enable ()
-  (condition-case nil
-      (lsp-cquery-enable)
-    (user-error nil)))
-
-(use-package cquery
-  :ensure t
-  :commands lsp-cquery-enable
-  :init
-  (add-hook 'c-mode-common-hook #'cquery//enable)
-  :config
-  (setq cquery-executable "/opt/cquery/build/release/bin/cquery")
-  )
-
-(use-package company-lsp
-  :ensure t
-  :config
-  (setq company-backends (list 'company-lsp))
-  (setq company-transformers nil company-lsp-async t company-lsp-cache-candidates nil)
   )
 
 (use-package magit
@@ -82,9 +61,7 @@
 
 (defun my-c-mode-common-config ()
   (setq c-basic-offset 4)
-
-  (company-mode 1)
-  (define-key c-mode-base-map (kbd "<C-tab>") 'company-complete)
+  (ggtags-mode 1)
   )
 
 (defun my-python-config ()
@@ -101,7 +78,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
- '(package-selected-packages (quote (lsp-mode use-package))))
+ '(package-selected-packages (quote (use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

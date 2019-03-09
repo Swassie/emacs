@@ -44,12 +44,14 @@
 
 (use-package ag
   :ensure t
+  :defer t
   )
 
 (use-package wgrep-ag
   :ensure t
   :config
   (setq wgrep-auto-save-buffer t)
+  :defer t
   )
 
 (use-package iedit

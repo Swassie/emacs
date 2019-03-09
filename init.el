@@ -38,7 +38,7 @@
   :ensure t
   :config
   (setq vc-handled-backends (delq 'Git vc-handled-backends))
-  (global-set-key (kbd "C-x g") 'magit-status)
+  :bind ("C-x g" . magit-status)
   )
 
 (use-package ag
@@ -55,9 +55,6 @@
   :ensure t
   )
 
-(require 'org)
-(setq org-log-done t)
-
 (winner-mode 1)
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/.emacsBackups"))
@@ -65,6 +62,7 @@
 	  read-file-name-completion-ignore-case t
 	  read-buffer-completion-ignore-case t
 	  c-default-style "bsd"
+	  org-log-done t
 	  )
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))

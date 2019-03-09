@@ -32,6 +32,7 @@
 
 (use-package ggtags
   :ensure t
+  :hook (c-mode-common . ggtags-mode)
   )
 
 (use-package magit
@@ -83,7 +84,6 @@
 
 (defun my-c-mode-common-config ()
   (setq c-basic-offset 4)
-  (ggtags-mode 1)
   )
 
 (defun my-python-config ()

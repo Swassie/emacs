@@ -30,6 +30,16 @@
   (remove-hook 'focus-out-hook 'powerline-unset-selected-window)
   )
 
+(use-package counsel
+  :ensure t
+  :demand t
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t
+		ivy-count-format "%d/%d ")
+  :bind ("C-s" . swiper)
+  )
+
 (use-package ggtags
   :ensure t
   :hook (c-mode-common . ggtags-mode)

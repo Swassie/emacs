@@ -31,6 +31,20 @@
   (global-set-key (kbd "C-x g") 'magit-status)
   )
 
+(use-package ag
+  :ensure t
+  )
+
+(use-package wgrep-ag
+  :ensure t
+  :config
+  (setq wgrep-auto-save-buffer t)
+  )
+
+(use-package iedit
+  :ensure t
+  )
+
 (require 'org)
 (setq org-log-done t)
 

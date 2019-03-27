@@ -105,6 +105,7 @@
 (add-hook 'prog-mode-hook 'my-prog-mode-config)
 (add-hook 'c-mode-common-hook 'my-c-mode-common-config)
 (add-hook 'python-mode-hook 'my-python-config)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Faces
 (set-face-attribute 'mode-line nil :foreground "black" :background "#30bc2b" :box nil)

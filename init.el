@@ -20,16 +20,6 @@
 (eval-when-compile
   (require 'use-package))
 
-(use-package powerline
-  :ensure t
-  :config
-  (setq powerline-display-buffer-size nil
-		powerline-display-mule-info nil
-		powerline-display-hud nil)
-  (powerline-default-theme)
-  (remove-hook 'focus-out-hook 'powerline-unset-selected-window)
-  )
-
 (use-package counsel
   :ensure t
   :demand t
@@ -106,21 +96,13 @@
 (add-hook 'python-mode-hook 'my-python-config)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; Faces
-(set-face-attribute 'mode-line nil :foreground "black" :background "#30bc2b" :box nil)
-(set-face-attribute 'mode-line-inactive nil :foreground "grey20" :background "grey90" :box nil)
-(set-face-attribute 'powerline-active1 nil :background "grey22" :foreground "white" :inherit 'mode-line)
-(set-face-attribute 'powerline-active2 nil :background "grey40" :foreground "white" :inherit 'mode-line)
-(set-face-attribute 'powerline-inactive1 nil :background "grey22" :foreground "white" :inherit 'mode-line-inactive)
-(set-face-attribute 'powerline-inactive2 nil :background "grey40" :foreground "white" :inherit 'mode-line-inactive)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
- '(package-selected-packages (quote (company company-mode powerline use-package))))
+ '(package-selected-packages (quote (company use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

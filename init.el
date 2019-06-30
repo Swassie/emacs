@@ -45,6 +45,13 @@
   :hook (c-mode-common . ggtags-mode)
   )
 
+(use-package company
+  :ensure t
+  :config
+  (setq company-backends (list 'company-gtags))
+  :bind ("C-<tab>" . company-complete)
+  )
+
 (use-package magit
   :ensure t
   :config
@@ -52,20 +59,11 @@
   :bind ("C-x g" . magit-status)
   )
 
-(use-package ag
-  :ensure t
-  :defer t
-  )
-
 (use-package wgrep-ag
   :ensure t
   :config
   (setq wgrep-auto-save-buffer t)
   :defer t
-  )
-
-(use-package iedit
-  :ensure t
   )
 
 (winner-mode 1)
@@ -96,6 +94,7 @@
 
 (defun my-c-mode-common-config ()
   (setq c-basic-offset 4)
+  (company-mode 1)
   )
 
 (defun my-python-config ()
@@ -121,7 +120,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
- '(package-selected-packages (quote (powerline use-package))))
+ '(package-selected-packages (quote (company company-mode powerline use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -20,6 +20,12 @@
 (eval-when-compile
   (require 'use-package))
 
+(use-package mood-line
+  :ensure t
+  :config
+  (mood-line-mode)
+  )
+
 (use-package counsel
   :ensure t
   :demand t
@@ -102,7 +108,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
- '(package-selected-packages (quote (company use-package))))
+ '(package-selected-packages (quote (mood-line company use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

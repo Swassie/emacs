@@ -20,6 +20,10 @@
 (eval-when-compile
   (require 'use-package))
 
+(use-package mood-one-theme
+  :ensure t
+  )
+
 (use-package mood-line
   :ensure t
   :config

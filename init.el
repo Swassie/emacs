@@ -94,6 +94,7 @@
 
 (defun my-c-mode-common-config ()
   (setq c-basic-offset 4)
+  (c-set-offset 'case-label '+)
   (company-mode 1)
   )
 

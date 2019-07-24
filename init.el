@@ -59,7 +59,7 @@
   :bind ("C-x g" . magit-status)
   )
 
-(use-package wgrep-ag
+(use-package wgrep
   :ensure t
   :config
   (setq wgrep-auto-save-buffer t)

@@ -40,16 +40,11 @@
   :bind ("C-s" . swiper)
   )
 
-(use-package ggtags
+(use-package dumb-jump
   :ensure t
-  :hook (c-mode-common . ggtags-mode)
-  )
-
-(use-package company
-  :ensure t
-  :config
-  (setq company-backends (list 'company-gtags))
-  :bind ("C-<tab>" . company-complete)
+  :config (setq dumb-jump-selector 'ivy)
+  :bind (("M-." . dumb-jump-go)
+         ("M-," . dumb-jump-back))
   )
 
 (use-package magit
@@ -95,7 +90,6 @@
 (defun my-c-mode-common-config ()
   (setq c-basic-offset 4)
   (c-set-offset 'case-label '+)
-  (company-mode 1)
   )
 
 (defun my-python-config ()
@@ -113,7 +107,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
- '(package-selected-packages (quote (mood-line company use-package))))
+ '(package-selected-packages (quote (mood-line use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

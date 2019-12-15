@@ -20,10 +20,10 @@
 (eval-when-compile
   (require 'use-package))
 
-(use-package mood-line
+(use-package color-theme-solarized
   :ensure t
   :config
-  (mood-line-mode)
+  (load-theme 'solarized t)
   )
 
 (use-package counsel

@@ -6,14 +6,12 @@
 (require 'package)
 
 (setq package-archives
-	  '(("GNU ELPA"     . "https://elpa.gnu.org/packages/")
-		("MELPA Stable" . "https://stable.melpa.org/packages/")
-		("MELPA"        . "https://melpa.org/packages/"))
-	  package-archive-priorities
-	  '(("MELPA Stable" . 10)
-		("GNU ELPA"     . 5)
-		("MELPA"        . 0))
-	  )
+      '(("GNU ELPA"     . "https://elpa.gnu.org/packages/")
+        ("MELPA"        . "https://melpa.org/packages/"))
+      package-archive-priorities
+      '(("GNU ELPA"     . 5)
+        ("MELPA"        . 0))
+      )
 
 (package-initialize)
 
@@ -32,7 +30,7 @@
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t
-		ivy-count-format "%d/%d ")
+        ivy-count-format "%d/%d ")
   :bind ("C-s" . swiper)
   )
 
@@ -60,12 +58,13 @@
 (winner-mode 1)
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/.emacsBackups"))
-	  backward-delete-char-untabify-method 'hungry
-	  read-file-name-completion-ignore-case t
-	  read-buffer-completion-ignore-case t
-	  c-default-style "bsd"
-	  org-log-done t
-	  )
+      backward-delete-char-untabify-method 'hungry
+      read-file-name-completion-ignore-case t
+      read-buffer-completion-ignore-case t
+      c-default-style "bsd"
+      org-log-done t
+      inhibit-startup-screen t
+      )
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (tool-bar-mode -1)
@@ -76,15 +75,15 @@
 
 (defun my-prog-mode-config ()
   (setq indent-tabs-mode t
-		tab-width 4
-		)
+        tab-width 4
+        c-basic-offset 4
+        )
 
   (show-paren-mode 1)
   (electric-pair-mode 1)
   )
 
 (defun my-c-mode-common-config ()
-  (setq c-basic-offset 4)
   (c-set-offset 'case-label '+)
   )
 
@@ -102,8 +101,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(inhibit-startup-screen t)
- '(package-selected-packages (quote (mood-line use-package))))
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

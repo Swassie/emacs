@@ -9,8 +9,8 @@
       '(("GNU ELPA"     . "https://elpa.gnu.org/packages/")
         ("MELPA"        . "https://melpa.org/packages/"))
       package-archive-priorities
-      '(("GNU ELPA"     . 5)
-        ("MELPA"        . 0))
+      '(("MELPA"        . 5)
+        ("GNU ELPA"     . 0))
       )
 
 (setq custom-file "~/.emacs.d/custom.el")

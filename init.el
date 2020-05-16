@@ -17,6 +17,8 @@
 (load custom-file :noerror)
 
 (package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
 (package-install 'use-package)
 (eval-when-compile (require 'use-package))
 
@@ -32,8 +34,9 @@
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t
-		ivy-use-selectable-prompt t
-        ivy-count-format "%d/%d ")
+        ivy-use-selectable-prompt t
+        ivy-count-format "%d/%d "
+        )
   :bind ("C-s" . swiper)
   )
 
@@ -67,9 +70,9 @@
 
 (defun my-prog-mode-config ()
   (setq-default c-default-style "stroustrup"
-				indent-tabs-mode nil
-				tab-width 4
-				)
+                indent-tabs-mode nil
+                tab-width 4
+                )
   (show-paren-mode 1)
   (electric-pair-mode 1)
   )

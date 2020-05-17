@@ -22,10 +22,10 @@
 (package-install 'use-package)
 (eval-when-compile (require 'use-package))
 
-(use-package color-theme-solarized
+(use-package solarized-theme
   :ensure t
   :config
-  (load-theme 'solarized t)
+  (load-theme 'solarized-light t)
   )
 
 (use-package counsel

@@ -72,9 +72,11 @@
   (setq-default c-default-style "stroustrup"
                 indent-tabs-mode nil
                 tab-width 4
+                display-fill-column-indicator-column 80
                 )
   (show-paren-mode 1)
   (electric-pair-mode 1)
+  (display-fill-column-indicator-mode 1)
   )
 
 (add-hook 'prog-mode-hook 'my-prog-mode-config)

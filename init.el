@@ -40,10 +40,15 @@
   :bind ("C-s" . swiper)
   )
 
+(use-package eglot
+  :ensure t
+  :hook ((c++-mode c-mode) . eglot-ensure)
+  :config
+  (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+  )
+
 (use-package magit
   :ensure t
-  :config
-  (setq vc-handled-backends (delq 'Git vc-handled-backends))
   :bind ("C-x g" . magit-status)
   )
 

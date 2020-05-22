@@ -24,8 +24,7 @@
 
 (use-package solarized-theme
   :ensure t
-  :config
-  (load-theme 'solarized-light t)
+  :config (load-theme 'solarized-light t)
   )
 
 (use-package counsel
@@ -43,8 +42,7 @@
 (use-package eglot
   :ensure t
   :hook ((c++-mode c-mode) . eglot-ensure)
-  :config
-  (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+  :config (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
   )
 
 (use-package magit
@@ -54,8 +52,7 @@
 
 (use-package wgrep
   :ensure t
-  :config
-  (setq wgrep-auto-save-buffer t)
+  :config (setq wgrep-auto-save-buffer t)
   :defer t
   )
 

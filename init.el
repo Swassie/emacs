@@ -51,6 +51,12 @@
   :bind ("C-x g" . magit-status)
   )
 
+(use-package company
+  :ensure t
+  :hook ((c++-mode c-mode) . company-mode)
+  :bind ("C-<tab>" . company-complete)
+  )
+
 (use-package wgrep
   :ensure t
   :config (setq wgrep-auto-save-buffer t)

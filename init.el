@@ -46,15 +46,20 @@
   :config (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
   )
 
-(use-package magit
+(use-package yasnippet
   :ensure t
-  :bind ("C-x g" . magit-status)
+  :init (yas-global-mode 1)
   )
 
 (use-package company
   :ensure t
   :hook ((c++-mode c-mode) . company-mode)
   :bind ("C-<tab>" . company-complete)
+  )
+
+(use-package magit
+  :ensure t
+  :bind ("C-x g" . magit-status)
   )
 
 (use-package wgrep

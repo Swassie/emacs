@@ -75,6 +75,7 @@
       )
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+(add-to-list 'default-frame-alist '(undecorated . t))
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (winner-mode 1)

@@ -40,21 +40,25 @@
   :bind ("C-s" . swiper)
   )
 
-(use-package eglot
+(use-package lsp-mode
   :ensure t
-  :hook ((c++-mode c-mode) . eglot-ensure)
-  :config (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
-  )
-
-(use-package yasnippet
-  :ensure t
-  :init (yas-global-mode 1)
+  :hook ((c++-mode c-mode) . lsp)
+  :commands lsp
+  :config
+  (setq lsp-modeline-code-action-fallback-icon "Actions")
+  (setq gc-cons-threshold 1600000)
+  (setq read-process-output-max (* 1024 1024))
   )
 
 (use-package company
   :ensure t
   :hook ((c++-mode c-mode) . company-mode)
   :bind ("C-<tab>" . company-complete)
+  )
+
+(use-package flycheck
+  :ensure t
+  :commands flycheck-mode
   )
 
 (use-package magit

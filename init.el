@@ -96,7 +96,7 @@
   (show-paren-mode 1)
   (electric-pair-mode 1)
   (display-fill-column-indicator-mode 1)
+  (add-hook 'before-save-hook 'delete-trailing-whitespace nil t)
   )
 
 (add-hook 'prog-mode-hook 'my-prog-mode-config)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)

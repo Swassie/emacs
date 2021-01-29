@@ -45,9 +45,13 @@
   :hook ((c++-mode c-mode) . lsp)
   :commands lsp
   :config
-  (setq lsp-modeline-code-action-fallback-icon "Actions")
-  (setq gc-cons-threshold 1600000)
-  (setq read-process-output-max (* 1024 1024))
+  (setq lsp-modeline-code-action-fallback-icon "Actions"
+        lsp-headerline-breadcrumb-enable nil
+        lsp-completion-enable-additional-text-edit nil
+        lsp-enable-on-type-formatting nil
+        gc-cons-threshold 1600000
+        read-process-output-max (* 1024 1024)
+        )
   )
 
 (use-package company

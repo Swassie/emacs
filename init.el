@@ -82,6 +82,7 @@
       inhibit-startup-screen t
       )
 
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'default-frame-alist '(undecorated . t))
 (tool-bar-mode -1)

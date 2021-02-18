@@ -42,7 +42,8 @@
 
 (use-package lsp-mode
   :ensure t
-  :hook ((c++-mode c-mode) . lsp)
+  :hook ((c++-mode c-mode csharp-mode) . lsp)
+  :bind ("C-c a" . lsp-execute-code-action)
   :commands lsp
   :config
   (setq lsp-modeline-code-action-fallback-icon "Actions"
@@ -74,6 +75,10 @@
   :ensure t
   :config (setq wgrep-auto-save-buffer t)
   :defer t
+  )
+
+(use-package csharp-mode
+  :ensure t
   )
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/.emacsBackups"))

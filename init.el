@@ -56,6 +56,7 @@
 
 (use-package flycheck
   :ensure t
+  :bind ("C-c n" . flycheck-next-error)
   :commands flycheck-mode)
 
 (use-package magit

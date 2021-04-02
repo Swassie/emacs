@@ -91,6 +91,7 @@
                 indent-tabs-mode nil
                 tab-width 4
                 display-fill-column-indicator-column 80)
+  (c-set-offset 'case-label '+)
   (show-paren-mode 1)
   (electric-pair-mode 1)
   (display-fill-column-indicator-mode 1)

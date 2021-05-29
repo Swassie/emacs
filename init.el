@@ -71,6 +71,10 @@
 (use-package csharp-mode
   :ensure t)
 
+(use-package editorconfig
+  :ensure t
+  :config (editorconfig-mode 1))
+
 (setq backup-directory-alist '(("." . "~/.emacs.d/.emacsBackups"))
       backward-delete-char-untabify-method 'hungry
       org-log-done t

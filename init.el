@@ -75,10 +75,11 @@
   :ensure t
   :config (editorconfig-mode 1))
 
-(setq backup-directory-alist '(("." . "~/.emacs.d/.emacs_backups"))
-      backward-delete-char-untabify-method 'hungry
-      org-log-done t
-      inhibit-startup-screen t)
+(setq-default backup-directory-alist '(("." . "~/.emacs.d/.emacs_backups"))
+              backward-delete-char-untabify-method 'hungry
+              org-log-done t
+              inhibit-startup-screen t
+              buffer-file-coding-system 'utf-8-unix)
 
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))

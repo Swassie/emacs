@@ -26,15 +26,24 @@
   :ensure t
   :config (load-theme 'solarized-light t))
 
-(use-package counsel
+(use-package vertico
   :ensure t
-  :demand t
-  :config
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t
-        ivy-use-selectable-prompt t
-        ivy-count-format "%d/%d ")
-  :bind ("C-s" . swiper))
+  :init (vertico-mode)
+  :bind (:map vertico-map
+              ("DEL" . vertico-directory-delete-char)))
+
+(use-package orderless
+  :ensure t
+  :custom (completion-styles '(orderless)))
+
+(use-package marginalia
+  :ensure t
+  :init (marginalia-mode))
+
+(use-package consult
+  :ensure t
+  :bind (("C-x b" . consult-buffer)
+         ("C-s" . consult-line)))
 
 (use-package eglot
   :ensure t
@@ -73,6 +82,7 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (winner-mode 1)
+(savehist-mode)
 
 (global-set-key "\M-n"  (lambda () (interactive) (scroll-up   2)))
 (global-set-key "\M-p"  (lambda () (interactive) (scroll-down 2)))

@@ -36,28 +36,14 @@
         ivy-count-format "%d/%d ")
   :bind ("C-s" . swiper))
 
-(use-package lsp-mode
+(use-package eglot
   :ensure t
-  :hook ((c++-mode c-mode csharp-mode) . lsp)
-  :bind ("C-c a" . lsp-execute-code-action)
-  :commands lsp
-  :config
-  (setq lsp-modeline-code-action-fallback-icon "Actions"
-        lsp-headerline-breadcrumb-enable nil
-        lsp-completion-enable-additional-text-edit nil
-        lsp-enable-on-type-formatting nil
-        gc-cons-threshold 1600000
-        read-process-output-max (* 1024 1024)))
+  :bind ("C-c n" . flymake-goto-next-error))
 
 (use-package company
   :ensure t
   :hook ((c++-mode c-mode) . company-mode)
   :bind ("C-<tab>" . company-complete))
-
-(use-package flycheck
-  :ensure t
-  :bind ("C-c n" . flycheck-next-error)
-  :commands flycheck-mode)
 
 (use-package magit
   :ensure t

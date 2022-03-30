@@ -47,11 +47,11 @@
 
 (use-package eglot
   :ensure t
-  :bind ("C-c n" . flymake-goto-next-error))
+  :bind (("C-c n" . flymake-goto-next-error)
+         ("C-c a" . eglot-code-actions)))
 
 (use-package company
   :ensure t
-  :hook ((c++-mode c-mode) . company-mode)
   :bind ("C-<tab>" . company-complete))
 
 (use-package magit
@@ -96,6 +96,7 @@
   (show-paren-mode 1)
   (electric-pair-mode 1)
   (display-fill-column-indicator-mode 1)
+  (company-mode)
   (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))
 
 (add-hook 'prog-mode-hook 'my-prog-mode-config)

@@ -42,8 +42,7 @@
 
 (use-package consult
   :ensure t
-  :bind (("C-x b" . consult-buffer)
-         ("C-s" . consult-line)))
+  :bind ("C-x b" . consult-buffer))
 
 (use-package eglot
   :ensure t
@@ -74,7 +73,9 @@
               backward-delete-char-untabify-method 'hungry
               org-log-done t
               inhibit-startup-screen t
-              buffer-file-coding-system 'utf-8-unix)
+              buffer-file-coding-system 'utf-8-unix
+              search-whitespace-regexp ".*?"
+              isearch-lazy-count t)
 
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -86,6 +87,8 @@
 
 (global-set-key "\M-n"  (lambda () (interactive) (scroll-up   2)))
 (global-set-key "\M-p"  (lambda () (interactive) (scroll-down 2)))
+(define-key isearch-mode-map (kbd "C-p") 'isearch-repeat-backward)
+(define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward)
 
 (defun my-prog-mode-config ()
   (setq-default c-default-style "stroustrup"

@@ -75,7 +75,8 @@
               inhibit-startup-screen t
               buffer-file-coding-system 'utf-8-unix
               search-whitespace-regexp ".*?"
-              isearch-lazy-count t)
+              isearch-lazy-count t
+              gdb-many-windows t)
 
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -96,6 +97,7 @@
                 tab-width 4
                 display-fill-column-indicator-column 80)
   (c-set-offset 'case-label '+)
+  (c-set-offset 'arglist-cont-nonempty '+)
   (show-paren-mode 1)
   (electric-pair-mode 1)
   (display-fill-column-indicator-mode 1)

@@ -76,7 +76,8 @@
               buffer-file-coding-system 'utf-8-unix
               search-whitespace-regexp ".*?"
               isearch-lazy-count t
-              gdb-many-windows t)
+              gdb-many-windows t
+              dired-dwim-target t)
 
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))

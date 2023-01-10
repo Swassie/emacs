@@ -51,6 +51,7 @@
 
 (use-package company
   :ensure t
+  :config (setq company-idle-delay nil)
   :bind ("C-<tab>" . company-complete))
 
 (use-package magit

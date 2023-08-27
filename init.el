@@ -100,6 +100,7 @@
                 display-fill-column-indicator-column 80)
   (c-set-offset 'case-label '+)
   (c-set-offset 'arglist-cont-nonempty '+)
+  (c-set-offset 'stream-op '+)
   (show-paren-mode 1)
   (electric-pair-mode 1)
   (display-fill-column-indicator-mode 1)

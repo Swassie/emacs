@@ -44,6 +44,18 @@
   :ensure t
   :bind ("C-x b" . consult-buffer))
 
+(use-package embark
+  :ensure t
+  :bind (("C-." . embark-act)
+         ("M-." . embark-dwim))
+  :init (setq prefix-help-command #'embark-prefix-help-command)
+  :config
+  ;; Hide the mode line of the Embark live/completions buffers
+  (add-to-list 'display-buffer-alist
+               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
+                 nil
+                 (window-parameters (mode-line-format . none)))))
+
 (use-package eglot
   :ensure t
   :bind (("C-c n" . flymake-goto-next-error)
